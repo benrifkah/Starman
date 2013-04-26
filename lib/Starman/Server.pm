@@ -65,6 +65,11 @@ sub run {
     local @ARGV = ();
 
     $self->SUPER::run(
+        # Pass all raw command line options to our parent
+        # Which expects them here.
+        # any that need to be modified by our option parsing
+        # get clobbered below
+        %$options,
         port                       => $port,
         host                       => $host,
         proto                      => $proto,
